@@ -4,8 +4,8 @@ import 'package:http/http.dart';
 import 'package:scoreboard/models/match.dart';
 
 class SoccerApi {
-  final String apiUrl =
-      "https://v3.football.api-sports.io/fixtures?season=2020&league=39";
+  final apiUrl = Uri.parse(
+      "https://v3.football.api-sports.io/fixtures?season=2020&league=39");
 
   static const headers = {
     'x-rapidapi-host': "v3.football.api-sports.io",
