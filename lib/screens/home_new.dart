@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scoreboard/api/soccer_api.dart';
 import 'package:scoreboard/constants.dart';
 import 'package:scoreboard/models/goal.dart';
 import 'package:scoreboard/models/match.dart';
@@ -61,7 +62,7 @@ class HomeNew extends StatelessWidget {
                 ),
                 Expanded(
                   child: FutureBuilder(
-                    future: null,
+                    future: SoccerApi.getLiveMatches(),
                     builder: (ctx, snapsot) {
                       if (snapsot.connectionState == ConnectionState.active) {
                         return Center(

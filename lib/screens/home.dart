@@ -22,7 +22,7 @@ class _SoccerAppState extends State<SoccerApp> {
         centerTitle: true,
       ),
       body: FutureBuilder(
-        future: SoccerApi().getAllMatches(),
+        // future: SoccerApi().getAllMatches(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             print((snapshot.data).length);

@@ -72,50 +72,71 @@ class LiveMatchCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 //home team container
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      width: _logoWidth,
-                      margin: const EdgeInsets.only(bottom: marginLarge),
-                      child: CachedNetworkImage(
-                        fit: BoxFit.cover,
-                        imageUrl: match.home.logoUrl,
-                        placeholder: (context, url) => Center(
-                          child: CircularProgressIndicator(),
+                Container(
+                  width: _cardWidth * 0.4,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        width: _logoWidth,
+                        margin: const EdgeInsets.only(bottom: marginLarge),
+                        child: CachedNetworkImage(
+                          fit: BoxFit.cover,
+                          imageUrl: match.home.logoUrl,
+                          placeholder: (context, url) => Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
                         ),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
                       ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: marginxLarge),
-                      child: Text(match.home.name),
-                    ),
-                    Text(match.goal.home.toString()),
-                  ],
+                      Container(
+                        margin: const EdgeInsets.only(bottom: marginxLarge),
+                        child: Text(
+                          match.home.name,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          softWrap: false,
+                        ),
+                      ),
+                      Text(match.goal.home.toString()),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: marginStandard,
                 ),
                 //away team container
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      width: _logoWidth,
-                      margin: const EdgeInsets.only(bottom: marginLarge),
-                      child: CachedNetworkImage(
-                        fit: BoxFit.cover,
-                        imageUrl: match.away.logoUrl,
-                        placeholder: (context, url) => Center(
-                          child: CircularProgressIndicator(),
+                Container(
+                  width: _cardWidth * 0.4,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        width: _logoWidth,
+                        margin: const EdgeInsets.only(bottom: marginLarge),
+                        child: CachedNetworkImage(
+                          fit: BoxFit.cover,
+                          imageUrl: match.away.logoUrl,
+                          placeholder: (context, url) => Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
                         ),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
                       ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: marginxLarge),
-                      child: Text(match.away.name),
-                    ),
-                    Text(match.goal.away.toString()),
-                  ],
+                      Container(
+                        margin: const EdgeInsets.only(bottom: marginxLarge),
+                        child: Text(
+                          match.away.name,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          softWrap: false,
+                        ),
+                      ),
+                      Text(match.goal.away.toString()),
+                    ],
+                  ),
                 ),
               ],
             ),
