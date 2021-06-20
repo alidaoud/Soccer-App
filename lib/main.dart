@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "ComicSans"),
       debugShowCheckedModeBanner: false,
       home: HomeNew(),
+      routes: {
+        // LeagueFixtures.ROUTE_NAME: (ctx) => LeagueFixtures(),
+      },
     );
   }
 }

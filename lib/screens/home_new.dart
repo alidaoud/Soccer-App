@@ -5,6 +5,7 @@ import 'package:scoreboard/models/goal.dart';
 import 'package:scoreboard/models/match.dart';
 import 'package:scoreboard/models/team.dart';
 import 'package:scoreboard/screens/background.dart';
+import 'package:scoreboard/screens/league_fixtures.dart';
 import 'package:scoreboard/widgets/home_bottom.dart';
 import 'package:scoreboard/widgets/home_top.dart';
 import 'package:scoreboard/widgets/list_live_matches.dart';
@@ -54,7 +55,15 @@ class HomeNew extends StatelessWidget {
                 ),
                 HomeTop(
                   onViewAllTap: () {},
-                  onLeagueTap: (leagueId) {},
+                  onLeagueTap: (league) {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (ctx) => LeagueFixtures(
+                          league: league,
+                        ),
+                      ),
+                    );
+                  },
                   height: _size.height * 0.22,
                 ),
                 SizedBox(
@@ -62,20 +71,21 @@ class HomeNew extends StatelessWidget {
                 ),
                 Expanded(
                   child: FutureBuilder(
-                    future: SoccerApi.getLiveMatches(),
-                    builder: (ctx, snapsot) {
-                      if (snapsot.connectionState == ConnectionState.active) {
+                    // future: SoccerApi.getLiveMatches(),
+                    future: null,
+                    builder: (ctx, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.active) {
                         return Center(
                           child: CircularProgressIndicator(),
                         );
                       }
-                      if (snapsot.hasError) {
+                      if (snapshot.hasError) {
                         return Center(
                           child: Text("An Error occurred !"),
                         );
                       }
 
-                      final liveMatches = snapsot.data;
+                      final liveMatches = snapshot.data;
                       return LiveMatchesList(
                         liveMatches: liveMatches,
                       );

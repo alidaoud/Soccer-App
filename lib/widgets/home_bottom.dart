@@ -66,7 +66,7 @@ class HomeBottom extends StatelessWidget {
                         ),
                         width: 55,
                         height: 55,
-                        child: Image.asset(_leagues[index].image),
+                        child: Image.asset(_leagues[index].logo),
                       ),
                     );
                   },
