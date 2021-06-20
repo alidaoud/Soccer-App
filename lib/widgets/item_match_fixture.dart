@@ -5,7 +5,9 @@ import 'package:scoreboard/models/match.dart';
 class MatchFixtureItem extends StatelessWidget {
   final int leagueId;
   final SoccerMatch match;
-  const MatchFixtureItem({Key key, this.match, this.leagueId})
+  final ValueSetter<SoccerMatch> onFixtureTap;
+  const MatchFixtureItem(
+      {Key key, this.match, this.leagueId, this.onFixtureTap})
       : super(key: key);
 
   static const List<Color> colors = [
@@ -36,59 +38,62 @@ class MatchFixtureItem extends StatelessWidget {
     if (homeGoal == null) homeGoal = 0;
     if (awayGoal == null) awayGoal = 0;
 
-    return Container(
-      height: 70,
-      margin: const EdgeInsets.all(marginStandard),
-      padding: const EdgeInsets.all(marginStandard),
-      decoration: BoxDecoration(
-        color: _itemColor,
-        borderRadius: BorderRadius.all(
-          Radius.circular(radiusStandard),
+    return InkWell(
+      onTap: () => onFixtureTap(match),
+      child: Container(
+        height: 70,
+        margin: const EdgeInsets.all(marginStandard),
+        padding: const EdgeInsets.all(marginStandard),
+        decoration: BoxDecoration(
+          color: _itemColor,
+          borderRadius: BorderRadius.all(
+            Radius.circular(radiusStandard),
+          ),
         ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            child: Text(
-              match.home.name,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: fontSizeSmall,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Text(
+                match.home.name,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: fontSizeSmall,
+                ),
               ),
             ),
-          ),
-          Image.network(
-            match.home.logoUrl,
-            width: 36.0,
-          ),
-          Expanded(
-            child: Text(
-              "$homeGoal - $awayGoal",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: fontSizeSmall,
+            Image.network(
+              match.home.logoUrl,
+              width: 36.0,
+            ),
+            Expanded(
+              child: Text(
+                "$homeGoal - $awayGoal",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: fontSizeSmall,
+                ),
               ),
             ),
-          ),
-          Image.network(
-            match.away.logoUrl,
-            width: 36.0,
-          ),
-          Expanded(
-            child: Text(
-              match.away.name,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: fontSizeSmall,
+            Image.network(
+              match.away.logoUrl,
+              width: 36.0,
+            ),
+            Expanded(
+              child: Text(
+                match.away.name,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: fontSizeSmall,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

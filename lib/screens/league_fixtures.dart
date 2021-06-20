@@ -4,6 +4,7 @@ import 'package:scoreboard/constants.dart';
 import 'package:scoreboard/models/league.dart';
 import 'package:scoreboard/models/match.dart';
 import 'package:scoreboard/screens/background.dart';
+import 'package:scoreboard/screens/statistics/match_statistics.dart';
 import 'package:scoreboard/widgets/item_match_fixture.dart';
 
 class LeagueFixtures extends StatelessWidget {
@@ -93,6 +94,15 @@ class LeagueFixtures extends StatelessWidget {
                         return MatchFixtureItem(
                           leagueId: league.id,
                           match: leagueFixtures[index],
+                          onFixtureTap: (match) {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (builder) => MatchStatistics(
+                                  match: match,
+                                ),
+                              ),
+                            );
+                          },
                         );
                       },
                     );

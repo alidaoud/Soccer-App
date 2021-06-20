@@ -71,8 +71,8 @@ class HomeNew extends StatelessWidget {
                 ),
                 Expanded(
                   child: FutureBuilder(
-                    // future: SoccerApi.getLiveMatches(),
-                    future: null,
+                    future: SoccerApi.getLiveMatches(),
+                    // future: null,
                     builder: (ctx, snapshot) {
                       if (snapshot.connectionState == ConnectionState.active) {
                         return Center(
