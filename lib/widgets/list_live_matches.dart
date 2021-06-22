@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:scoreboard/constants.dart';
 import 'package:scoreboard/models/match.dart';
+import 'package:scoreboard/screens/statistics/live_match_details.dart';
 import 'package:scoreboard/widgets/card_live_match.dart';
 import 'package:scoreboard/widgets/no_live_matches.dart';
 
 class LiveMatchesList extends StatelessWidget {
+  final Function onTap;
   final List<SoccerMatch> liveMatches;
-  LiveMatchesList({Key key, this.liveMatches}) : super(key: key);
+  LiveMatchesList({Key key, this.liveMatches, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,14 @@ class LiveMatchesList extends StatelessWidget {
                       itemCount: liveMatches.length,
                       itemBuilder: (ctx, index) {
                         return InkWell(
-                          onTap: () {},
+                          onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (ctx) => LiveMatchDetails(
+                                match: liveMatches[index],
+                              ),
+                            ),
+                          ),
                           child: LiveMatchCard(
                             index: index,
                             match: liveMatches[index],

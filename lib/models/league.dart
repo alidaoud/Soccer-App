@@ -5,7 +5,11 @@ class League {
   String cover;
 
   League(this.id, this.name, this.logo, this.cover);
+  League.fromServer(this.id, this.name, this.logo);
 
+  factory League.fromJson(Map<String, dynamic> json) {
+    return League.fromServer(json['id'], json['name'], json['logo']);
+  }
   static List<League> leagues = [
     League(2, "Champions League", "assets/images/Champions_League.png",
         "assets/images/champions-league_cover.jpeg"),

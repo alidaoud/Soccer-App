@@ -12,6 +12,7 @@ const marginxLarge = 24.0;
 const radiusStandard = 24.0;
 
 const COLOR_GREEN = Color(0xFF379D2E);
+const COLOR_GREEN_LIGHT = Color(0xFF77FF6C);
 const COLOR_PRIMARY = Color(0xFF6E62FF);
 const BG_TOP_CONTAINER = Color(0xFF6E62FF);
 const BG_BOTTOM_CONTAINER = Color(0xFFE1A8E5);
@@ -21,3 +22,7 @@ const BG_CARD_LIVE_3 = Color(0x50F0A716);
 const BG_CARD_LIVE_4 = Color(0x5057D909);
 
 const IMG_BG = "assets/images/bg.svg";
+const IMG_CLOCK = "assets/images/clock.svg";
+const IMG_REFEREE = "assets/images/referee.svg";
+const IMG_VENUE = "assets/images/field.svg";
+const IMG_LEAGUE = "assets/images/trophy.svg";

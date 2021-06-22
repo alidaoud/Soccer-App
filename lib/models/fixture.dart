@@ -1,12 +1,16 @@
 import 'package:scoreboard/models/status.dart';
+import 'package:scoreboard/models/venue.dart';
 
 class Fixture {
   int id;
   String date;
+  String referee;
   Status status;
-  Fixture(this.id, this.date, this.status);
+  Venue venue;
+  Fixture(this.id, this.date, this.referee, this.status, this.venue);
 
   factory Fixture.fromJson(Map<String, dynamic> json) {
-    return Fixture(json['id'], json['date'], Status.fromJson(json['status']));
+    return Fixture(json['id'], json['date'], json['referee'],
+        Status.fromJson(json['status']), Venue.fromJson(json['venue']));
   }
 }
