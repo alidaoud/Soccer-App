@@ -1,16 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:scoreboard/api/soccer_api.dart';
 import 'package:scoreboard/constants.dart';
 import 'package:scoreboard/models/match.dart';
+import 'package:scoreboard/models/statistic.dart';
 import 'package:scoreboard/screens/background.dart';
+import 'package:scoreboard/screens/statistics/components/row.dart';
 import 'package:scoreboard/screens/statistics/components/team.dart';
 
-class MatchStatistics extends StatelessWidget {
+class MatchStatistics extends StatefulWidget {
   final SoccerMatch match;
   const MatchStatistics({Key key, this.match}) : super(key: key);
 
   @override
+  _MatchStatisticsState createState() => _MatchStatisticsState();
+}
+
+class _MatchStatisticsState extends State<MatchStatistics> {
+  List<Statistic> homeStatistics;
+  List<Statistic> awayStatistics;
+  var _isLoading = false;
+  @override
+  void initState() {
+    super.initState();
+    getStatistics();
+  }
+
+  void getStatistics() async {
+    isLoading = true;
+    homeStatistics = await SoccerApi.getTeamStatistics2(
+        widget.match.fixture.id, widget.match.home.id);
+
+    awayStatistics = await SoccerApi.getTeamStatistics2(
+        widget.match.fixture.id, widget.match.away.id);
+    isLoading = false;
+
+    // print("Home:: homestats :: ${homeStatistics.statistics.toList()}");
+    // print("Home:: awaystats :: ${awayStatistics.statistics.toList()}");
+  }
+
+  set isLoading(bool loading) {
+    setState(() {
+      _isLoading = loading;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
+    final _homeStatLength = homeStatistics.length;
+    final _awayStatLength = awayStatistics.length;
+    final _statLength =
+        _homeStatLength >= _awayStatLength ? _awayStatLength : _homeStatLength;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: COLOR_PRIMARY,
@@ -38,7 +78,7 @@ class MatchStatistics extends StatelessWidget {
                     children: [
                       TeamLogoName(
                         width: _size.width * 0.2,
-                        team: match.home,
+                        team: widget.match.home,
                       ),
                       Container(
                         width: _size.width * 0.25,
@@ -46,7 +86,7 @@ class MatchStatistics extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              match.goal.home.toString(),
+                              widget.match.goal.home.toString(),
                               style: TextStyle(
                                   fontSize: fontSizeLarge, color: Colors.white),
                             ),
@@ -56,7 +96,7 @@ class MatchStatistics extends StatelessWidget {
                                   fontSize: fontSizeLarge, color: Colors.white),
                             ),
                             Text(
-                              match.goal.away.toString(),
+                              widget.match.goal.away.toString(),
                               style: TextStyle(
                                   fontSize: fontSizeLarge, color: Colors.white),
                             ),
@@ -65,7 +105,7 @@ class MatchStatistics extends StatelessWidget {
                       ),
                       TeamLogoName(
                         width: _size.width * 0.2,
-                        team: match.away,
+                        team: widget.match.away,
                       ),
                     ],
                   ),
@@ -73,9 +113,21 @@ class MatchStatistics extends StatelessWidget {
               ),
               //statistics list
               Expanded(
-                child: Center(
-                  child: Text("Statistics will be here soon"),
-                ),
+                child: _isLoading
+                    ? Center(child: CircularProgressIndicator())
+                    : ListView.builder(
+                        itemCount: _statLength,
+                        itemBuilder: (ctx, index) {
+                          return StatisticRow(
+                            // home: 2,
+                            // away: 3,
+                            // title: "tiot",
+                            home: homeStatistics[index].value,
+                            away: awayStatistics[index].value,
+                            title: homeStatistics[index].type,
+                          );
+                        },
+                      ),
               ),
             ],
           )
