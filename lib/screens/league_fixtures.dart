@@ -31,7 +31,7 @@ class LeagueFixtures extends StatelessWidget {
                   bottomRight: Radius.circular(radiusStandard),
                 ),
                 child: Container(
-                  height: _size.height * 0.25,
+                  height: _size.height * 0.27,
                   width: double.infinity,
                   child: Stack(
                     children: [

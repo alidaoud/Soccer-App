@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:scoreboard/constants.dart';
 import 'package:scoreboard/models/match.dart';
@@ -64,9 +65,14 @@ class MatchFixtureItem extends StatelessWidget {
                 ),
               ),
             ),
-            Image.network(
-              match.home.logoUrl,
-              width: 36.0,
+            CachedNetworkImage(
+              width: 36,
+              fit: BoxFit.cover,
+              imageUrl: match.home.logoUrl,
+              placeholder: (context, url) => Center(
+                child: CircularProgressIndicator(),
+              ),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
             Expanded(
               child: Text(
@@ -78,9 +84,14 @@ class MatchFixtureItem extends StatelessWidget {
                 ),
               ),
             ),
-            Image.network(
-              match.away.logoUrl,
-              width: 36.0,
+            CachedNetworkImage(
+              width: 36,
+              fit: BoxFit.cover,
+              imageUrl: match.away.logoUrl,
+              placeholder: (context, url) => Center(
+                child: CircularProgressIndicator(),
+              ),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
             Expanded(
               child: Text(

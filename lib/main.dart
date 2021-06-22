@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/screens/home_new.dart';
+import 'package:scoreboard/screens/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,10 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "ComicSans"),
       debugShowCheckedModeBanner: false,
-      home: HomeNew(),
-      routes: {
-        // LeagueFixtures.ROUTE_NAME: (ctx) => LeagueFixtures(),
-      },
+      home: Home(),
     );
   }
 }

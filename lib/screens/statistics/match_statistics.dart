@@ -19,6 +19,8 @@ class _MatchStatisticsState extends State<MatchStatistics> {
   List<Statistic> homeStatistics;
   List<Statistic> awayStatistics;
   var _isLoading = false;
+  var _homeStatLength = 0;
+  var _awayStatLength = 0;
   @override
   void initState() {
     super.initState();
@@ -27,13 +29,14 @@ class _MatchStatisticsState extends State<MatchStatistics> {
 
   void getStatistics() async {
     isLoading = true;
-    homeStatistics = await SoccerApi.getTeamStatistics2(
+    homeStatistics = await SoccerApi.getTeamStatistics(
         widget.match.fixture.id, widget.match.home.id);
 
-    awayStatistics = await SoccerApi.getTeamStatistics2(
+    awayStatistics = await SoccerApi.getTeamStatistics(
         widget.match.fixture.id, widget.match.away.id);
     isLoading = false;
-
+    _homeStatLength = homeStatistics.length;
+    _awayStatLength = awayStatistics.length;
     // print("Home:: homestats :: ${homeStatistics.statistics.toList()}");
     // print("Home:: awaystats :: ${awayStatistics.statistics.toList()}");
   }
@@ -47,8 +50,7 @@ class _MatchStatisticsState extends State<MatchStatistics> {
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
-    final _homeStatLength = homeStatistics.length;
-    final _awayStatLength = awayStatistics.length;
+
     final _statLength =
         _homeStatLength >= _awayStatLength ? _awayStatLength : _homeStatLength;
     return Scaffold(

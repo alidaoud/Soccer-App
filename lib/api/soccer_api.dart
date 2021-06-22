@@ -51,7 +51,7 @@ class SoccerApi {
 
   static Future<List<Statistic>> getTeamStatistics(
       int fixtureId, int teamId) async {
-    print("[SoccerApi] :: getTeamStatistics: called");
+    print("[SoccerApi] :: getting team statistics for team $teamId..");
     final url = Uri.parse(baseUrl +
         "fixtures/statistics?fixture=${fixtureId.toString()}&team=${teamId.toString()}");
     Response res = await get(url, headers: headers).catchError((error) {
@@ -65,7 +65,7 @@ class SoccerApi {
       List<dynamic> response = body['response'];
 
       for (Map<String, dynamic> stat in response.first['statistics']) {
-        print("loop :: ${stat.toString()}");
+        // print("loop :: ${stat.toString()}");
         try {
           statistics.add(Statistic.fromJson(stat));
         } catch (e) {

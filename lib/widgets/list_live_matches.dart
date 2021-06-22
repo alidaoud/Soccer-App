@@ -47,7 +47,7 @@ class LiveMatchesList extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: liveMatches != null
+            child: liveMatches != null && liveMatches.length > 0
                 ? Container(
                     // height: 50,
                     child: ListView.builder(

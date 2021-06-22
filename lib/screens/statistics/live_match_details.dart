@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/api/soccer_api.dart';
 import 'package:scoreboard/constants.dart';
 import 'package:scoreboard/models/match.dart';
-import 'package:scoreboard/models/statistic.dart';
-import 'package:scoreboard/models/team_statistics.dart';
 import 'package:scoreboard/screens/background.dart';
-import 'package:scoreboard/screens/statistics/components/row.dart';
 import 'package:scoreboard/screens/statistics/components/team.dart';
 import 'package:scoreboard/widgets/item_live_detail.dart';
 

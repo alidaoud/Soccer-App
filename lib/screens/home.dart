@@ -4,13 +4,12 @@ import 'package:scoreboard/constants.dart';
 import 'package:scoreboard/models/match.dart';
 import 'package:scoreboard/screens/background.dart';
 import 'package:scoreboard/screens/league_fixtures.dart';
-import 'package:scoreboard/screens/statistics/live_match_details.dart';
 import 'package:scoreboard/widgets/home_bottom.dart';
 import 'package:scoreboard/widgets/home_top.dart';
 import 'package:scoreboard/widgets/list_live_matches.dart';
 
-class HomeNew extends StatelessWidget {
-  const HomeNew({Key key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +55,8 @@ class HomeNew extends StatelessWidget {
                     future: SoccerApi.getLiveMatches(),
                     // future: null,
                     builder: (ctx, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.active) {
+                      if (snapshot.connectionState == ConnectionState.active ||
+                          snapshot.connectionState == ConnectionState.waiting) {
                         return Center(
                           child: CircularProgressIndicator(),
                         );
