@@ -75,39 +75,65 @@ class _MatchStatisticsState extends State<MatchStatistics> {
                   // height: _size.height * 0.2,
                   width: double.infinity,
                   color: COLOR_PRIMARY,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Column(
                     children: [
-                      TeamLogoName(
-                        width: _size.width * 0.2,
-                        team: widget.match.home,
-                      ),
                       Container(
-                        width: _size.width * 0.25,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              widget.match.goal.home.toString(),
-                              style: TextStyle(
-                                  fontSize: fontSizeLarge, color: Colors.white),
-                            ),
-                            Text(
-                              "-",
-                              style: TextStyle(
-                                  fontSize: fontSizeLarge, color: Colors.white),
-                            ),
-                            Text(
-                              widget.match.goal.away.toString(),
-                              style: TextStyle(
-                                  fontSize: fontSizeLarge, color: Colors.white),
-                            ),
-                          ],
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          border: Border.all(color: Colors.white),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12),
+                          ),
+                        ),
+                        child: Text(
+                          widget.match.fixture.date.substring(0, 10),
+                          style: TextStyle(color: Colors.white),
                         ),
                       ),
-                      TeamLogoName(
-                        width: _size.width * 0.2,
-                        team: widget.match.away,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TeamLogoName(
+                            isHome: true,
+                            width: _size.width * 0.25,
+                            team: widget.match.home,
+                          ),
+                          Container(
+                            width: _size.width * 0.2,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  widget.match.goal.home.toString(),
+                                  style: TextStyle(
+                                      fontSize: fontSizexxLarge,
+                                      color: Colors.white),
+                                ),
+                                Text(
+                                  "-",
+                                  style: TextStyle(
+                                      fontSize: fontSizexxLarge,
+                                      color: Colors.white),
+                                ),
+                                Text(
+                                  widget.match.goal.away.toString(),
+                                  style: TextStyle(
+                                      fontSize: fontSizexxLarge,
+                                      color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ),
+                          TeamLogoName(
+                            isHome: false,
+                            width: _size.width * 0.25,
+                            team: widget.match.away,
+                          ),
+                        ],
                       ),
                     ],
                   ),

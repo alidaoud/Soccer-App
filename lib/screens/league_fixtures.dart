@@ -7,10 +7,17 @@ import 'package:scoreboard/screens/background.dart';
 import 'package:scoreboard/screens/statistics/match_statistics.dart';
 import 'package:scoreboard/widgets/item_match_fixture.dart';
 
-class LeagueFixtures extends StatelessWidget {
+class LeagueFixtures extends StatefulWidget {
   static const ROUTE_NAME = "LeagueFixtures";
   final League league;
   const LeagueFixtures({Key key, @required this.league}) : super(key: key);
+
+  @override
+  _LeagueFixturesState createState() => _LeagueFixturesState();
+}
+
+class _LeagueFixturesState extends State<LeagueFixtures> {
+  int season = 2020;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +46,7 @@ class LeagueFixtures extends StatelessWidget {
                         width: double.infinity,
                         height: double.infinity,
                         child: Image.asset(
-                          league.cover,
+                          widget.league.cover,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -65,9 +72,33 @@ class LeagueFixtures extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(marginStandard),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text("Season:"),
+                    DropdownButton<int>(
+                      hint: Text(season.toString()),
+                      // dropdownColor:,
+                      items: SEASONS.map((int value) {
+                        return new DropdownMenuItem<int>(
+                          value: value,
+                          child: new Text(value.toString()),
+                        );
+                      }).toList(),
+                      onChanged: (val) {
+                        setState(() {
+                          season = val;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
               Expanded(
                 child: FutureBuilder(
-                  future: SoccerApi.getLeagueMatches(2020, league.id),
+                  future: SoccerApi.getLeagueMatches(season, widget.league.id),
                   builder: (ctx, snapshot) {
                     if (snapshot.connectionState == ConnectionState.active ||
                         snapshot.connectionState == ConnectionState.waiting) {
@@ -92,7 +123,7 @@ class LeagueFixtures extends StatelessWidget {
                       itemCount: leagueFixtures.length,
                       itemBuilder: (ctx, index) {
                         return MatchFixtureItem(
-                          leagueId: league.id,
+                          leagueId: widget.league.id,
                           match: leagueFixtures[index],
                           onFixtureTap: (match) {
                             Navigator.of(context).push(

@@ -6,7 +6,9 @@ import 'package:scoreboard/models/team.dart';
 class TeamLogoName extends StatelessWidget {
   final Team team;
   final double width;
-  const TeamLogoName({Key key, this.team, this.width}) : super(key: key);
+  final bool isHome;
+  const TeamLogoName({Key key, this.team, this.width, this.isHome})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +17,14 @@ class TeamLogoName extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Text(
+            isHome ? "Home" : "Away",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(height: marginLarge),
           CachedNetworkImage(
             fit: BoxFit.cover,
             imageUrl: team.logoUrl,
@@ -27,7 +37,7 @@ class TeamLogoName extends StatelessWidget {
           Text(
             team.name,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white, fontSize: fontSizeStandard),
           ),
         ],
       ),

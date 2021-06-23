@@ -64,6 +64,7 @@ class _LiveMatchDetailsState extends State<LiveMatchDetails> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           TeamLogoName(
+                            isHome: true,
                             width: _size.width * 0.2,
                             team: widget.match.home,
                           ),
@@ -75,25 +76,26 @@ class _LiveMatchDetailsState extends State<LiveMatchDetails> {
                                 Text(
                                   widget.match.goal.home.toString(),
                                   style: TextStyle(
-                                      fontSize: fontSizeLarge,
+                                      fontSize: fontSizexxLarge,
                                       color: Colors.white),
                                 ),
                                 Text(
                                   "-",
                                   style: TextStyle(
-                                      fontSize: fontSizeLarge,
+                                      fontSize: fontSizexxLarge,
                                       color: Colors.white),
                                 ),
                                 Text(
                                   widget.match.goal.away.toString(),
                                   style: TextStyle(
-                                      fontSize: fontSizeLarge,
+                                      fontSize: fontSizexxLarge,
                                       color: Colors.white),
                                 ),
                               ],
                             ),
                           ),
                           TeamLogoName(
+                            isHome: false,
                             width: _size.width * 0.2,
                             team: widget.match.away,
                           ),

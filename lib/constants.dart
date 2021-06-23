@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 const fontSizeSmall = 16.0;
 const fontSizeStandard = 18.0;
 const fontSizeLarge = 22.0;
-const fontSizexLarge = 24.0;
+const fontSizexLarge = 22.0;
+const fontSizexxLarge = 50.0;
 
 const marginStandard = 10.0;
 const marginLarge = 16.0;
@@ -26,3 +27,19 @@ const IMG_CLOCK = "assets/images/clock.svg";
 const IMG_REFEREE = "assets/images/referee.svg";
 const IMG_VENUE = "assets/images/field.svg";
 const IMG_LEAGUE = "assets/images/trophy.svg";
+
+const SEASONS = [
+  2020,
+  2019,
+  2018,
+  2017,
+  2016,
+  2015,
+  2014,
+  2013,
+  2012,
+  2011,
+  2010,
+  2009,
+  2008,
+];
