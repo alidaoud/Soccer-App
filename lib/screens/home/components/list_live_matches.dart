@@ -7,8 +7,10 @@ import 'package:soccerapp/screens/home/components/no_live_matches.dart';
 
 class LiveMatchesList extends StatelessWidget {
   final Function onTap;
+  final Function onViewAllTap;
   final List<SoccerMatch> liveMatches;
-  LiveMatchesList({Key key, this.liveMatches, this.onTap}) : super(key: key);
+  LiveMatchesList({Key key, this.liveMatches, this.onTap, this.onViewAllTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +33,10 @@ class LiveMatchesList extends StatelessWidget {
                   ),
                 ),
                 Visibility(
-                  visible: liveMatches != null,
+                  // visible: liveMatches != null,
+                  visible: onViewAllTap != null,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: onViewAllTap,
                     child: Text(
                       "View All",
                       style: TextStyle(

@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 HomeTop(
-                  onViewAllTap: () {},
+                  onViewAllTap: null,
                   onLeagueTap: (league) {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -78,7 +78,7 @@ class Home extends StatelessWidget {
                   height: marginLarge,
                 ),
                 HomeBottom(
-                  onViewAllTap: () {},
+                  onViewAllTap: null,
                   onLeagueTap: (league) {
                     Navigator.of(context).push(
                       MaterialPageRoute(

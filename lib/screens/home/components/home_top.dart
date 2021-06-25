@@ -39,10 +39,13 @@ class HomeTop extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: onViewAllTap,
-                  child: Text(
-                    "View All",
-                    style: TextStyle(
-                        color: Colors.white30, fontSize: fontSizeStandard),
+                  child: Visibility(
+                    visible: onViewAllTap != null,
+                    child: Text(
+                      "View All",
+                      style: TextStyle(
+                          color: Colors.white30, fontSize: fontSizeStandard),
+                    ),
                   ),
                 ),
               ],
