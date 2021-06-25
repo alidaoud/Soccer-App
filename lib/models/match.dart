@@ -1,7 +1,7 @@
-import 'package:scoreboard/models/fixture.dart';
-import 'package:scoreboard/models/goal.dart';
-import 'package:scoreboard/models/league.dart';
-import 'package:scoreboard/models/team.dart';
+import 'package:soccerapp/models/fixture.dart';
+import 'package:soccerapp/models/goal.dart';
+import 'package:soccerapp/models/league.dart';
+import 'package:soccerapp/models/team.dart';
 
 class SoccerMatch {
   Fixture fixture;

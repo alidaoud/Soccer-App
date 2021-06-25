@@ -1,6 +1,6 @@
 {
-    "name": "scoreboard",
-    "short_name": "scoreboard",
+    "name": "soccerapp",
+    "short_name": "soccerapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

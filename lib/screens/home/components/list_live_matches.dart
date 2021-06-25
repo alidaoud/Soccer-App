@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/constants.dart';
-import 'package:scoreboard/models/match.dart';
-import 'package:scoreboard/screens/live_match_details.dart';
-import 'package:scoreboard/screens/home/components/card_live_match.dart';
-import 'package:scoreboard/screens/home/components/no_live_matches.dart';
+import 'package:soccerapp/constants.dart';
+import 'package:soccerapp/models/match.dart';
+import 'package:soccerapp/screens/live_match_details.dart';
+import 'package:soccerapp/screens/home/components/card_live_match.dart';
+import 'package:soccerapp/screens/home/components/no_live_matches.dart';
 
 class LiveMatchesList extends StatelessWidget {
   final Function onTap;

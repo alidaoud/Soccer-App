@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:scoreboard/constants.dart';
-import 'package:scoreboard/models/match.dart';
+import 'package:soccerapp/constants.dart';
+import 'package:soccerapp/models/match.dart';
 
 class MatchFixtureItem extends StatelessWidget {
   final int leagueId;

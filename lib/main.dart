@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/screens/home/home.dart';
+import 'package:soccerapp/screens/home/home.dart';
 
 void main() {
   runApp(MyApp());

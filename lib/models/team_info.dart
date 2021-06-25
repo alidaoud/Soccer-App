@@ -1,5 +1,5 @@
-import 'package:scoreboard/models/team.dart';
-import 'package:scoreboard/models/venue.dart';
+import 'package:soccerapp/models/team.dart';
+import 'package:soccerapp/models/venue.dart';
 
 class TeamInfo {
   Team team;

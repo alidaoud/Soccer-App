@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/constants.dart';
-import 'package:scoreboard/models/match.dart';
-import 'package:scoreboard/screens/background.dart';
-import 'package:scoreboard/screens/statistics/components/team.dart';
-import 'package:scoreboard/widgets/item_live_detail.dart';
+import 'package:soccerapp/constants.dart';
+import 'package:soccerapp/models/match.dart';
+import 'package:soccerapp/screens/background.dart';
+import 'package:soccerapp/screens/statistics/components/team.dart';
+import 'package:soccerapp/widgets/item_live_detail.dart';
 
 class LiveMatchDetails extends StatefulWidget {
   final SoccerMatch match;

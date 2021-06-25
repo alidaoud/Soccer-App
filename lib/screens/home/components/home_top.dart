@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/constants.dart';
-import 'package:scoreboard/models/league.dart';
+import 'package:soccerapp/constants.dart';
+import 'package:soccerapp/models/league.dart';
 
 class HomeTop extends StatelessWidget {
   final double height;

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/api/soccer_api.dart';
-import 'package:scoreboard/constants.dart';
-import 'package:scoreboard/models/league.dart';
-import 'package:scoreboard/models/match.dart';
-import 'package:scoreboard/screens/background.dart';
-import 'package:scoreboard/screens/statistics/match_statistics.dart';
-import 'package:scoreboard/widgets/item_match_fixture.dart';
+import 'package:soccerapp/api/soccer_api.dart';
+import 'package:soccerapp/constants.dart';
+import 'package:soccerapp/models/league.dart';
+import 'package:soccerapp/models/match.dart';
+import 'package:soccerapp/screens/background.dart';
+import 'package:soccerapp/screens/statistics/match_statistics.dart';
+import 'package:soccerapp/widgets/item_match_fixture.dart';
 
 class LeagueFixtures extends StatefulWidget {
   static const ROUTE_NAME = "LeagueFixtures";

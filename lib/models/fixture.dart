@@ -1,5 +1,5 @@
-import 'package:scoreboard/models/status.dart';
-import 'package:scoreboard/models/venue.dart';
+import 'package:soccerapp/models/status.dart';
+import 'package:soccerapp/models/venue.dart';
 
 class Fixture {
   int id;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/constants.dart';
+import 'package:soccerapp/constants.dart';
 
 class NoLiveMatches extends StatelessWidget {
   final double height;

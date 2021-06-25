@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:scoreboard/constants.dart';
-import 'package:scoreboard/models/team_info.dart';
+import 'package:soccerapp/constants.dart';
+import 'package:soccerapp/models/team_info.dart';
 
 class TeamInfoItem extends StatelessWidget {
   final TeamInfo teamInfo;

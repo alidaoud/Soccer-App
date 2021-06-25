@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
-import 'package:scoreboard/models/match.dart';
-import 'package:scoreboard/models/statistic.dart';
-import 'package:scoreboard/models/team_info.dart';
+import 'package:soccerapp/models/match.dart';
+import 'package:soccerapp/models/statistic.dart';
+import 'package:soccerapp/models/team_info.dart';
 
 class SoccerApi {
   static const baseUrl = "https://v3.football.api-sports.io/";

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:scoreboard/constants.dart';
+import 'package:soccerapp/constants.dart';
 
 class TransparentBackground extends StatelessWidget {
   const TransparentBackground({Key key}) : super(key: key);

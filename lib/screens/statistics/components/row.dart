@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/constants.dart';
+import 'package:soccerapp/constants.dart';
 
 class StatisticRow extends StatelessWidget {
   final dynamic home;

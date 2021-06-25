@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/api/soccer_api.dart';
-import 'package:scoreboard/constants.dart';
-import 'package:scoreboard/models/match.dart';
-import 'package:scoreboard/models/statistic.dart';
-import 'package:scoreboard/screens/background.dart';
-import 'package:scoreboard/screens/statistics/components/row.dart';
-import 'package:scoreboard/screens/statistics/components/team.dart';
+import 'package:soccerapp/api/soccer_api.dart';
+import 'package:soccerapp/constants.dart';
+import 'package:soccerapp/models/match.dart';
+import 'package:soccerapp/models/statistic.dart';
+import 'package:soccerapp/screens/background.dart';
+import 'package:soccerapp/screens/statistics/components/row.dart';
+import 'package:soccerapp/screens/statistics/components/team.dart';
 
 class MatchStatistics extends StatefulWidget {
   final SoccerMatch match;

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/api/soccer_api.dart';
-import 'package:scoreboard/constants.dart';
-import 'package:scoreboard/models/league.dart';
-import 'package:scoreboard/models/team_info.dart';
-import 'package:scoreboard/screens/background.dart';
-import 'package:scoreboard/widgets/item_team_info.dart';
+import 'package:soccerapp/api/soccer_api.dart';
+import 'package:soccerapp/constants.dart';
+import 'package:soccerapp/models/league.dart';
+import 'package:soccerapp/models/team_info.dart';
+import 'package:soccerapp/screens/background.dart';
+import 'package:soccerapp/widgets/item_team_info.dart';
 
 class LeagueTeams extends StatefulWidget {
   static const ROUTE_NAME = "LeagueTeams";

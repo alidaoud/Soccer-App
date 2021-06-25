@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/constants.dart';
-import 'package:scoreboard/models/match.dart';
-import 'package:scoreboard/screens/background.dart';
-import 'package:scoreboard/screens/league_fixtures.dart';
-import 'package:scoreboard/screens/league_teams.dart';
-import 'package:scoreboard/screens/home/components/home_bottom.dart';
-import 'package:scoreboard/screens/home/components/home_top.dart';
-import 'package:scoreboard/screens/home/components/list_live_matches.dart';
+import 'package:soccerapp/constants.dart';
+import 'package:soccerapp/models/match.dart';
+import 'package:soccerapp/screens/background.dart';
+import 'package:soccerapp/screens/league_fixtures.dart';
+import 'package:soccerapp/screens/league_teams.dart';
+import 'package:soccerapp/screens/home/components/home_bottom.dart';
+import 'package:soccerapp/screens/home/components/home_top.dart';
+import 'package:soccerapp/screens/home/components/list_live_matches.dart';
 
 class Home extends StatelessWidget {
   const Home({Key key}) : super(key: key);

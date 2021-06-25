@@ -1,4 +1,4 @@
-# scoreboard
+# soccerapp
 
 A new Flutter project.
 
