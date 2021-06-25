@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scoreboard/api/soccer_api.dart';
 import 'package:scoreboard/constants.dart';
 import 'package:scoreboard/models/league.dart';
-import 'package:scoreboard/models/team.dart';
 import 'package:scoreboard/models/team_info.dart';
-import 'package:scoreboard/models/venue.dart';
 import 'package:scoreboard/screens/background.dart';
 import 'package:scoreboard/widgets/item_team_info.dart';
 
@@ -19,19 +17,6 @@ class LeagueTeams extends StatefulWidget {
 
 class _LeagueTeamsState extends State<LeagueTeams> {
   int season = 2020;
-
-  final teamInfo = TeamInfo(
-    Team(1, "name", "https://media.api-sports.io/football/teams/529.png",
-        "country", true, false),
-    Venue(
-      0,
-      "https://media.api-sports.io/football/venues/1462.png",
-      "Camp",
-      "city",
-      "address",
-      1111,
-    ),
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -146,10 +131,6 @@ class _LeagueTeamsState extends State<LeagueTeams> {
                   },
                 ),
               ),
-
-              // TeamInfoItem2(
-              //   teamInfo: teamInfo,
-              // ),
             ],
           ),
         ],

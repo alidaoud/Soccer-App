@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scoreboard/screens/home.dart';
+import 'package:scoreboard/screens/home/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Soccer App',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "ComicSans"),
       debugShowCheckedModeBanner: false,
       home: Home(),

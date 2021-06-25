@@ -55,16 +55,6 @@ class LiveMatchCard extends StatelessWidget {
               "Live",
               style: TextStyle(color: COLOR_GREEN),
             ),
-            // SizedBox(
-            //   width: marginStandard,
-            // ),
-            // Container(
-            //   width: 5,
-            //   decoration: BoxDecoration(
-            //     color: COLOR_GREEN,
-            //     shape: BoxShape.circle,
-            //   ),
-            // ),
           ),
           SizedBox(height: marginxLarge),
           Expanded(
