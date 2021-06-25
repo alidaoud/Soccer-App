@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:scoreboard/models/match.dart';
 import 'package:scoreboard/models/statistic.dart';
+import 'package:scoreboard/models/team_info.dart';
 
 class SoccerApi {
   static const baseUrl = "https://v3.football.api-sports.io/";
@@ -76,6 +77,30 @@ class SoccerApi {
       print("stats:: ${statistics.toList()}");
     }
     return statistics;
+  }
+
+  static Future<List<TeamInfo>> getLeagueTeams(int leagueId, int season) async {
+    print("[SoccerApi] :: getLeagueTeams: called");
+    final url = Uri.parse(baseUrl + "teams?league=$leagueId&season=$season");
+
+    Response res = await get(url, headers: headers).catchError((error) {
+      print(error);
+    });
+    print("url:: $url");
+    List<TeamInfo> teams = [];
+
+    if (res.statusCode == 200) {
+      var body = jsonDecode(res.body);
+      List<dynamic> teamsList = body['response'];
+      try {
+        teams =
+            teamsList.map((dynamic item) => TeamInfo.fromJson(item)).toList();
+      } catch (error) {
+        print(error);
+      }
+      print("teams:: ${teams.toList()}");
+    }
+    return teams;
   }
 
   //move back to the getTeamStatistics method above in the stable version

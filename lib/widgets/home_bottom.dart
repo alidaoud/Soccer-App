@@ -5,7 +5,7 @@ import 'package:scoreboard/models/league.dart';
 class HomeBottom extends StatelessWidget {
   final double height;
   final Function onViewAllTap;
-  final ValueSetter<int> onLeagueTap;
+  final ValueSetter<League> onLeagueTap;
   const HomeBottom({Key key, this.height, this.onViewAllTap, this.onLeagueTap})
       : super(key: key);
 
@@ -58,7 +58,7 @@ class HomeBottom extends StatelessWidget {
                   itemBuilder: (ctx, index) {
                     return InkWell(
                       onTap: () {
-                        onLeagueTap(_leagues[index].id);
+                        onLeagueTap(_leagues[index]);
                       },
                       child: Container(
                         margin: const EdgeInsets.symmetric(

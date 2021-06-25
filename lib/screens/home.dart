@@ -4,6 +4,7 @@ import 'package:scoreboard/constants.dart';
 import 'package:scoreboard/models/match.dart';
 import 'package:scoreboard/screens/background.dart';
 import 'package:scoreboard/screens/league_fixtures.dart';
+import 'package:scoreboard/screens/league_teams.dart';
 import 'package:scoreboard/widgets/home_bottom.dart';
 import 'package:scoreboard/widgets/home_top.dart';
 import 'package:scoreboard/widgets/list_live_matches.dart';
@@ -52,8 +53,8 @@ class Home extends StatelessWidget {
                 ),
                 Expanded(
                   child: FutureBuilder(
-                    future: SoccerApi.getLiveMatches(),
-                    // future: null,
+                    // future: SoccerApi.getLiveMatches(),
+                    future: null,
                     builder: (ctx, snapshot) {
                       if (snapshot.connectionState == ConnectionState.active ||
                           snapshot.connectionState == ConnectionState.waiting) {
@@ -79,7 +80,13 @@ class Home extends StatelessWidget {
                 ),
                 HomeBottom(
                   onViewAllTap: () {},
-                  onLeagueTap: (leagueId) {},
+                  onLeagueTap: (league) {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (builder) => LeagueTeams(league: league),
+                      ),
+                    );
+                  },
                   height: _size.height * 0.22,
                 ),
               ],
