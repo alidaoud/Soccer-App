@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soccerapp/api/soccer_api.dart';
 import 'package:soccerapp/constants.dart';
 import 'package:soccerapp/models/match.dart';
 import 'package:soccerapp/screens/background.dart';
@@ -52,8 +53,8 @@ class Home extends StatelessWidget {
                 ),
                 Expanded(
                   child: FutureBuilder(
-                    // future: SoccerApi.getLiveMatches(),
-                    future: null,
+                    future: SoccerApi.getLiveMatches(),
+                    // future: null,
                     builder: (ctx, snapshot) {
                       if (snapshot.connectionState == ConnectionState.active ||
                           snapshot.connectionState == ConnectionState.waiting) {
